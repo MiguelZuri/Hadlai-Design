@@ -15,9 +15,18 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/productos', function () {
-    return view('productos');
-});
+Route::get('/productos', 'ProductController@index')->name('productos');
+
+//GET SECTION
+Route::get('/registrar-producto', 'ProductController@create')->name('registrar-producto');
+
+
+// POST SECTION
+Route::post('/registrar-producto', 'ProductController@store')->name('registrar-producto');
+
+
+Route::resource('products','ProductController');
+
 
 Auth::routes();
 
