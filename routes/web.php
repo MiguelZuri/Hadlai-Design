@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 
 Route::resource('productos','ProductController');
-
+Route::post('productos/{id}/editar','ProductController@store');
 
 Auth::routes();
 

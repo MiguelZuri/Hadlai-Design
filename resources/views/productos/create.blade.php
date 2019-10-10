@@ -5,6 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                @if (@isset($products))
+                <h2>Editar articulo</h2>
+                @else
+                <h2>Registro de articulo</h2>
+                @endif
                 <div class="card-header">Contacto</div>
                 <div class="card-body">
                 <form action="{{ url('productos') }}" method="POST">
