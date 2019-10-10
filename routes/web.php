@@ -15,17 +15,18 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/productos', 'ProductController@index')->name('productos');
-
-//GET SECTION
-Route::get('/registrar-producto', 'ProductController@create')->name('registrar-producto');
-
-
-// POST SECTION
-Route::post('/registrar-producto', 'ProductController@store')->name('registrar-producto');
+// Route::get('/productos', 'ProductController@index')->name('productos');
+// Route::get('/lista-productos/{id/show}', 'ProductController@show')->name('lista-productos');
+// Route::get('/lista-productos', 'ProductController@index')->name('lista-productos');
+// //GET SECTION
+// Route::get('/registrar-producto', 'ProductController@create')->name('registrar-producto');
 
 
-Route::resource('products','ProductController');
+// // POST SECTION
+// Route::post('/registrar-producto', 'ProductController@store')->name('registrar-producto');
+
+
+Route::resource('productos','ProductController');
 
 
 Auth::routes();

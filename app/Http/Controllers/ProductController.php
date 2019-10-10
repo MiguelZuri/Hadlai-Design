@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('productos');
+        $products = Product::all();
+        return view('productos.index', compact('products'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('registrar-producto');
+        return view('productos.create');
     }
 
     /**
@@ -38,7 +39,7 @@ class ProductController extends Controller
         Product::create($request->all());
 
         //Redireccionar
-        return redirect()->route('registrar-producto');//->back();
+        return redirect('productos');//->back();
     }
 
     /**
@@ -49,7 +50,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $products = Product::all();
+        //dd($products);
+        return view('productos', compact('products'));
     }
 
     /**
