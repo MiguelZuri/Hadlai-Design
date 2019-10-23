@@ -37,7 +37,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         Product::create($request->all());
-
         //Redireccionar
         return redirect('productos');//->back();
     }
@@ -63,8 +62,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::findOrFail($id);
-        return view('productos.create', compact('productos'));
+        $products = Product::findOrFail($id);
+        return view('productos.create', compact('products'));
     }
 
     /**
@@ -74,10 +73,18 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $products= Product::findOrFail($id);
+        $products->nombre = $request->input('nombre');
+        $products->estilo = $request->input('estilo');
+        $products->tipo_area = $request->input('tipo_area');
+        $products->precio = $request->input('precio');
+        $products->update();
+  
+        return redirect()->route('productos.index')
+                          ->with(['message'=>'Informacion actualizada correctamente']);
+      }
 
     /**
      * Remove the specified resource from storage.

@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('content')
-    
+@if(session('message'))
+<div class="alert alert-success">
+  <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+    <i class="tim-icons icon-simple-remove"></i>
+  </button>
+  <span><b> Success - </b> {{session('message')}}</span>
+</div>
+@endif
+
 <div class="col-md-12">
     <div class="card">
       <div class="card-header">
@@ -72,12 +80,23 @@
                         {{ $product->created_at }}
                 </td>
                 <td class="text-right">
-                    <form action="{{route('productos.destroy', $product->id)}}" method="POST">
-                      <button type="submit" rel="tooltip" class="btn btn-danger btn-link btn-sm " data-original-title="Delete" title=""><i class="tim-icons icon-pencil"></i></button>
-                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-sm btn-icon " data-original-title="Refresh" title=""><i class="tim-icons icon-refresh-01"></i><a href="{{route('productos.edit', $product->id)}}"></a></button>
-                        @csrf
+                    {{-- <form action="{{route('productos.destroy', $product->id)}}" method="POST">
+                      <button type="submit" rel="tooltip" class="btn btn-danger btn-link btn-sm"><i class="tim-icons icon-pencil"></i><a href="{{route('productos.edit', $product->id)}}"></a></button> --}}
+                        {{-- <button type="button" rel="tooltip" class="btn btn-success btn-link btn-sm btn-icon " data-original-title="Refresh" title=""><i class="tim-icons icon-refresh-01"></i><a href="{{route('productos.edit', $product->id)}}"></a></button> --}}
+                        {{-- @csrf
                         @method('DELETE')
                         <button type="submit" rel="tooltip" class="btn btn-danger btn-link btn-sm " data-original-title="Delete" title=""><i class="tim-icons icon-simple-remove"></i></button>
+                    </form> --}}
+
+                    <form action="{{ route('productos.destroy', $product->id) }}" method="POST">
+                        <button type="button" rel="tooltip" class="btn btn-success btn-sm btn-icon">
+                          <a href="{{ route('productos.edit', $product->id) }}" style="color:white;" class="tim-icons icon-settings"></a>
+                        </button>
+                          @csrf
+                          @method('DELETE')
+                        <button type="submit" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
+                          <a style="color:white;" class="tim-icons icon-simple-remove"></a>
+                        </button>
                     </form>
 
                   {{-- <button type="button" rel="tooltip" class="btn btn-success btn-link btn-sm btn-icon " data-original-title="Refresh" title="">

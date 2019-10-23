@@ -6,34 +6,34 @@
         <div class="col-md-8">
             <div class="card">
                 @if (@isset($products))
-                <h2>Editar articulo</h2>
+                <div class="card-header">Editar Producto</div>
                 @else
-                <h2>Registro de articulo</h2>
+                <div class="card-header">Agregar Producto</div>
                 @endif
-                <div class="card-header">Contacto</div>
-                <div class="card-body">
-                <form action="{{ url('productos') }}" method="POST">
-                @csrf
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingresa el nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="estilo">Estilo</label>
-                        <input type="text" name="estilo" class="form-control" id="estilo" placeholder="Ingresa el estilo">
-                    </div>
-                    <div class="form-group">
-                        <label for="tipo_area">Tipo de Área</label>
-                        <input type="text" name="tipo_area" class="form-control" id="tipo_area" placeholder="Ingresa el tipo de area del producto">
-                    </div>
-                    <div class="form-group">
-                        <label for="precio">Precio</label>
-                        <input type="text" name="precio" class="form-control" id="precio" placeholder="Ingresa el precio del producto">
-                    </div>
-                    {{-- <div class="form-group">
-                        <label for="comentario">Example textarea</label>
-                        <textarea name="comentario" class="form-control" id="comentario" rows="3"></textarea>
-                    </div> --}}
+                    <div class="card-body">
+                        @if (@isset($products))
+                        <form  action="{{ route('productos.update', $products->id) }}" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="_method" value="PATCH">
+                        @else
+                        <form action="{{ route('productos.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            @endif    
+                        @csrf
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input required type="text" class="form-control" name="nombre" value="{{ isset($products) ? $products->nombre : '' }}{{ old('nombre') }}"  placeholder="Ingresa el nombre del producto">
+                            </div>
+                            <div class="form-group">
+                                <label for="estilo">Estilo</label>
+                                <input required type="text" class="form-control" name="estilo" value="{{ isset($products) ? $products->estilo : '' }}{{ old('estilo  ') }}"  placeholder="Ingresa el estilo del producto">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo_area">Tipo de Área</label>
+                                <input required type="text" class="form-control" name="tipo_area" value="{{ isset($products) ? $products->tipo_area : '' }}{{ old('tipo_area  ') }}"  placeholder="Ingresa el tipo de area del producto">
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Precio</label>
+                                <input required type="text" class="form-control" name="precio" value="{{ isset($products) ? $products->precio : '' }}{{ old('precio  ') }}"  placeholder="Ingresa el precio del producto">
+                            </div>
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
                 </div>
