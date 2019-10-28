@@ -34,7 +34,11 @@
                                 <label for="precio">Precio</label>
                                 <input required type="text" class="form-control" name="precio" value="{{ isset($products) ? $products->precio : '' }}{{ old('precio  ') }}"  placeholder="Ingresa el precio del producto">
                             </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    @if (@isset($products))
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    @else
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    @endif
                 </form>
                 </div>
             </div>

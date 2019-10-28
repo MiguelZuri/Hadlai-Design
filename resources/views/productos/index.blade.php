@@ -80,39 +80,27 @@
                         {{ $product->created_at }}
                 </td>
                 <td class="text-right">
-                    {{-- <form action="{{route('productos.destroy', $product->id)}}" method="POST">
-                      <button type="submit" rel="tooltip" class="btn btn-danger btn-link btn-sm"><i class="tim-icons icon-pencil"></i><a href="{{route('productos.edit', $product->id)}}"></a></button> --}}
-                        {{-- <button type="button" rel="tooltip" class="btn btn-success btn-link btn-sm btn-icon " data-original-title="Refresh" title=""><i class="tim-icons icon-refresh-01"></i><a href="{{route('productos.edit', $product->id)}}"></a></button> --}}
-                        {{-- @csrf
-                        @method('DELETE')
-                        <button type="submit" rel="tooltip" class="btn btn-danger btn-link btn-sm " data-original-title="Delete" title=""><i class="tim-icons icon-simple-remove"></i></button>
-                    </form> --}}
-
                     <form action="{{ route('productos.destroy', $product->id) }}" method="POST">
-                        <button type="button" rel="tooltip" class="btn btn-success btn-sm btn-icon">
-                          <a href="{{ route('productos.edit', $product->id) }}" style="color:white;" class="tim-icons icon-settings"></a>
+                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-sm btn-icon " data-original-title="Refresh" title="">
+                            <a href="{{ route('productos.edit', $product->id) }}"><i class="tim-icons icon-pencil"></i></a>
                         </button>
                           @csrf
                           @method('DELETE')
-                        <button type="submit" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
-                          <a style="color:white;" class="tim-icons icon-simple-remove"></a>
+                        <button type="submit" rel="tooltip" class="btn btn-danger btn-link btn-sm " data-original-title="Delete" title="">
+                          <i class="tim-icons icon-simple-remove"></i>
                         </button>
-                    </form>
-
-                  {{-- <button type="button" rel="tooltip" class="btn btn-success btn-link btn-sm btn-icon " data-original-title="Refresh" title="">
-                    <i class="tim-icons icon-refresh-01"></i>
-                  </button>
-                  <button type="button" rel="tooltip" class="btn btn-danger btn-link btn-sm " data-original-title="Delete" title="">
-                    <i class="tim-icons icon-simple-remove"></i>
-                  </button> --}}
+                    </form>        
                 </td>
               </tr>
-              
               @endforeach
             </tbody>
           </table>
-        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <a href="{{ route('productos.create') }}" type="button" class="btn btn-primary">Registrar Producto</a>
     </div>
   </div>
 
