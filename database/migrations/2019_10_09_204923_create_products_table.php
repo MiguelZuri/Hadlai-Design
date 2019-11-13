@@ -19,7 +19,6 @@ class CreateProductsTable extends Migration
             $table->string('estilo');
             $table->string('tipo_area');
             $table->decimal('precio', 8, 2);
-            $table->integer('cantidad');
             $table->string('categoria');
             $table->longText('descripcion');
             $table->timestamps();

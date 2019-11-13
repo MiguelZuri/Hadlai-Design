@@ -80,6 +80,8 @@ class ProductController extends Controller
         $products->estilo = $request->input('estilo');
         $products->tipo_area = $request->input('tipo_area');
         $products->precio = $request->input('precio');
+        $products->categoria = $request->input('categoria');
+        $products->descripcion = $request->input('descripcion');
         $products->update();
   
         return redirect()->route('productos.index')

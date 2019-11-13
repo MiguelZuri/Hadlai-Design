@@ -32,31 +32,31 @@
           <table class="table">
             <thead class="text-primary">
               <tr>
-                <th scope="col" class="text-center">
+                <th class="col-1 text-center">
                   #
                 </th>
-                <th scope="col">
+                <th class="col-1 text-left">
                     Nombre
                 </th>
-                <th scope="col">
+                <th class="col-1 text-left">
                     Estilo
                 </th>
-                <th scope="col" class="text-center">
+                <th class="col-1 text-left">
                     Tipo de Area
                 </th>
-                <th scope="col" class="text-right">
+                <th class="col-1 text-left">
                     Precio
                 </th>
-                <th scope="col" class="text-right">
+                <th class="col-1 text-left">
                   Cantidad
                 </th>
-                <th scope="col" class="text-right">
+                <th class="col-1 text-left">
                     Fecha de registro
                 </th>
-                <th scope="col" class="text-right">
+                <th class="col-1 text-left">
                   Descripción
                 </th>
-                <th scope="col" class="text-right">
+                <th class="col-1 text-center">
                     Opciones
                 </th>
               </tr>
@@ -76,22 +76,22 @@
                 <td>
                         {{ $product->estilo }}
                 </td>
-                <td class="text-center">
+                <td class="">
                         {{ $product->tipo_area }}
                 </td>
-                <td class="text-right">
-                        {{ $product->precio }}
+                <td class="">
+                       $ {{ $product->precio }}
                 </td>
-                <td class="text-right">
-                        {{ $product->cantidad }}
+                <td class="">
+                        {{ $product->categoria }}
                 </td>
-                <td class="text-right">
+                <td class="">
                         {{ $product->created_at }}
                 </td>
-                <td class="text-right">
+                <td class="">
                         {{ $product->descripcion }}
                 </td>
-                <td class="text-right">
+                <td class="text-center">
                     <form action="{{ route('productos.destroy', $product->id) }}" method="POST">
                         <button type="button" rel="tooltip" class="btn btn-success btn-link btn-sm btn-icon " data-original-title="Refresh" title="">
                             <a href="{{ route('productos.edit', $product->id) }}"><i class="tim-icons icon-pencil"></i></a>
