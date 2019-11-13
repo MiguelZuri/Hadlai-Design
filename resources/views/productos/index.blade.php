@@ -48,7 +48,13 @@
                     Precio
                 </th>
                 <th scope="col" class="text-right">
+                  Cantidad
+                </th>
+                <th scope="col" class="text-right">
                     Fecha de registro
+                </th>
+                <th scope="col" class="text-right">
+                  Descripción
                 </th>
                 <th scope="col" class="text-right">
                     Opciones
@@ -77,7 +83,13 @@
                         {{ $product->precio }}
                 </td>
                 <td class="text-right">
+                        {{ $product->cantidad }}
+                </td>
+                <td class="text-right">
                         {{ $product->created_at }}
+                </td>
+                <td class="text-right">
+                        {{ $product->descripcion }}
                 </td>
                 <td class="text-right">
                     <form action="{{ route('productos.destroy', $product->id) }}" method="POST">

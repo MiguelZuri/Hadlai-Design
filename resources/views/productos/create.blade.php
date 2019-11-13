@@ -34,6 +34,15 @@
                                 <label for="precio">Precio</label>
                                 <input required type="text" class="form-control" name="precio" value="{{ isset($products) ? $products->precio : '' }}{{ old('precio  ') }}"  placeholder="Ingresa el precio del producto">
                             </div>
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad</label>
+                                <input required type="text" class="form-control" name="cantidad" value="{{ isset($products) ? $products->cantidad : '' }}{{ old('cantidad  ') }}"  placeholder="Ingresa la cantidad de productos">
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripción</label>
+                                {{-- <input required type="text" class="form-control" name="descripcion" value="{{ isset($products) ? $products->descripcion : '' }}{{ old('descripcion  ') }}"  placeholder="Agrega una breve descripcion del producto"> --}}
+                                <textarea cols="30" rows="10" class="form-control" name="descripcion" value="{{ isset($products) ? $products->descripcion : '' }}{{ old('descripcion  ') }}"  placeholder="Ingresa una breve descripcion del producto"></textarea>
+                            </div>
                     @if (@isset($products))
                     <button type="submit" class="btn btn-primary">Guardar</button>
                     @else
