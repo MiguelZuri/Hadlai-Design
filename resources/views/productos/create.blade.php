@@ -40,8 +40,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="descripcion">Descripción</label>
-                                {{-- <input required type="text" class="form-control" name="descripcion" value="{{ isset($products) ? $products->descripcion : '' }}{{ old('descripcion  ') }}"  placeholder="Agrega una breve descripcion del producto"> --}}
-                                <textarea cols="30" rows="10" class="form-control" name="descripcion" value="{{ isset($products) ? $products->descripcion : '' }}{{ old('descripcion  ') }}"  placeholder="Ingresa una breve descripcion del producto"></textarea>
+                                <textarea required cols="30" rows="10" class="form-control" name="descripcion" value="{{ isset($products) ? $products->descripcion : '' }}{{ old('descripcion  ') }}"  placeholder="Ingresa una breve descripcion del producto"></textarea>
                             </div>
                     @if (@isset($products))
                     <button type="submit" class="btn btn-primary">Guardar</button>
