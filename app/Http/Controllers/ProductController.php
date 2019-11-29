@@ -41,9 +41,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());
+        // Product::create($request->all());
+        $producto = new Product([
+            'nombre' => $request->nombre,
+            'estilo' => $request->estilo,
+            'tipo_area' => $request->tipo_area,
+            'precio' => $request->precio,
+            'cantidad' => $request->cantidad,
+          ]
+      );
         $categoria = Categoria::find($request->categoria_id);
-        // $categoria->product()->save($alumno);
+        $categoria->product()->save($producto);
 
         return redirect('productos');//->back();
     }
