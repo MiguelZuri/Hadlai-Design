@@ -39,56 +39,32 @@
                     Nombre
                 </th>
                 <th class="col-1 text-left">
-                    Estilo
+                    Descripción
                 </th>
                 <th class="col-1 text-left">
-                    Tipo de Area
-                </th>
-                <th class="col-1 text-left">
-                    Precio
-                </th>
-                <th class="col-1 text-left">
-                    Cantidad
-                </th>
-                <th class="col-1 text-left">
-                    Fecha de registro
-                </th>
-                <th class="col-1 text-center">
                     Opciones
                 </th>
               </tr>
             </thead>
             <tbody>
-                @foreach($products as $product)
+                @foreach($categorias as $categoria)
               <tr>
                 <td class="text-center">
-                    {{ $product->id }}
+                    {{ $categoria->id }}
                   {{-- <div class="photo">
                     <img src="https://black-dashboard-pro-laravel.creative-tim.com/black/img/tania.jpg" alt="Table image">
                   </div> --}}
                 </td>
                 <td>
-                    {{ $product->nombre }}
-                </td>
-                <td>
-                        {{ $product->estilo }}
+                    {{ $categoria->nombre }}
                 </td>
                 <td class="">
-                        {{ $product->tipo_area }}
+                        {{ $categoria->descripcion }}
                 </td>
-                <td class="">
-                       $ {{ $product->precio }}
-                </td>
-                <td class="">
-                        {{ $product->cantidad }}
-                </td>
-                <td class="">
-                        {{ $product->created_at }}
-                </td>
-                <td class="text-center">
-                    <form action="{{ route('productos.destroy', $product->id) }}" method="POST">
+                <td class="text-left">
+                    <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST">
                         <button type="button" rel="tooltip" class="btn btn-success btn-link btn-sm btn-icon " data-original-title="Refresh" title="">
-                            <a href="{{ route('productos.edit', $product->id) }}"><i class="tim-icons icon-pencil"></i></a>
+                            <a href="{{ route('categorias.edit', $categoria->id) }}"><i class="tim-icons icon-pencil"></i></a>
                         </button>
                           @csrf
                           @method('DELETE')
@@ -106,7 +82,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-        <a href="{{ route('productos.create') }}" type="button" class="btn btn-primary">Registrar Producto</a>
+        <a href="{{ route('categorias.create') }}" type="button" class="btn btn-primary">Registrar categoria</a>
     </div>
   </div>
 

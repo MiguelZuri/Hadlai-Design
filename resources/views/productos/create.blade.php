@@ -35,12 +35,16 @@
                                 <input required type="text" class="form-control" name="precio" value="{{ isset($products) ? $products->precio : '' }}{{ old('precio  ') }}"  placeholder="Ingresa el precio del producto">
                             </div>
                             <div class="form-group">
-                                <label for="categoria">Categoria</label>
-                                <input required type="text" class="form-control" name="categoria" value="{{ isset($products) ? $products->categoria : '' }}{{ old('categoria  ') }}"  placeholder="Ingresa la categoria del producto">
+                                <label for="cantidad">Cantidad</label>
+                                <input required type="text" class="form-control" name="cantidad" value="{{ isset($products) ? $products->cantidad : '' }}{{ old('cantidad  ') }}"  placeholder="Ingresa la cantidad del producto">
                             </div>
                             <div class="form-group">
-                                <label for="descripcion">Descripción</label>
-                                <textarea required cols="30" rows="10" class="form-control" name="descripcion" value="{{ isset($products) ? $products->descripcion : '' }}{{ old('descripcion  ') }}"  placeholder="Ingresa una breve descripcion del producto"></textarea>
+                                <label for="categorias">Categoria</label>
+                                <select class="form-control"  name="categoria_id" id="categorias">
+                                    @foreach($categorias as $id => $nombre)
+                                    <option value="{{ $id }}" >{{ $nombre }}</option> 
+                                    @endforeach
+                                </select>
                             </div>
                     @if (@isset($products))
                     <button type="submit" class="btn btn-primary">Guardar</button>

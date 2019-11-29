@@ -13,7 +13,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'estilo' => $faker->word,
         'tipo_area' => $faker->word,
         'precio' => $faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = 10000),
-        'descripcion' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-        'categoria' => $faker->word,
+        'cantidad' => $faker->randomDigitNotNull,
+        'categoria_id' => $faker->randomDigitNotNull,
     ];
 });

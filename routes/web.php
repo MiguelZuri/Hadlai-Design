@@ -1,5 +1,6 @@
 <?php
-
+use App\Product;
+use App\Categoria;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,8 +26,11 @@ Route::get('/', function () {
 // // POST SECTION
 // Route::post('/registrar-producto', 'ProductController@store')->name('registrar-producto');
 
+// $prod = Product::find(1)->first()->category;
+// return $prod;
 
 Route::resource('productos','ProductController');
+Route::resource('categorias','CategoriaController');
 
 Route::post('productos/{id}/editar','ProductController@store');
 

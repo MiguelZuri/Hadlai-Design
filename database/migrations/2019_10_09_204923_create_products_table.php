@@ -19,9 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('estilo');
             $table->string('tipo_area');
             $table->decimal('precio', 8, 2);
-            $table->string('categoria');
-            $table->longText('descripcion');
+            $table->bigInteger('cantidad');
+            $table->unsignedBigInteger('categoria_id');
             $table->timestamps();
+
+            $table->foreign('categoria_id')->references('id')->on('categorias');
         });
     }
 
