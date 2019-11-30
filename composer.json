@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.0",
         "laravel-frontend-presets/black-dashboard": "^1.0",
         "laravel/framework": "^6.0",
+        "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.0",
         "spatie/laravel-permission": "^3.3"

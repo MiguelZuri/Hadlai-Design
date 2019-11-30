@@ -1,6 +1,7 @@
 <?php
 use App\Product;
 use App\Categoria;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,3 +52,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('categorias','CategoriaController');
 });
 
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
