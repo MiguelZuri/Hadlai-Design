@@ -12,9 +12,7 @@ use App\Categoria;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', function () {return view('index');});
 
 // Route::get('/productos', 'ProductController@index')->name('productos');
 // Route::get('/lista-productos/{id/show}', 'ProductController@show')->name('lista-productos');
@@ -29,14 +27,6 @@ Route::get('/', function () {
 // $prod = Product::find(1)->first()->category;
 // return $prod;
 
-Route::resource('productos','ProductController');
-Route::resource('categorias','CategoriaController');
-
-Route::post('productos/{id}/editar','ProductController@store');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
@@ -56,5 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+	Route::resource('productos','ProductController');
+	Route::resource('categorias','CategoriaController');
 });
 

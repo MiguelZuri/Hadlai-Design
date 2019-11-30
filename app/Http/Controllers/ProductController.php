@@ -16,6 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+        // $products = Product::withTrashed()->get(); // Muestra registros creados y eliminados;
+        // $products = Product::onlyTrashed()->get(); // Muestra unicamente registros eliminados
         $categorias = Categoria::all();
         return view('productos.index', compact('products'));
     }
@@ -41,6 +43,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|string|max:35',
+            'estilo' => 'required|string|max:35',
+            'tipo_area' => 'required|string|max:35',
+            'precio' => 'required|integer|min:1',
+            'cantidad' => 'required|integer|min:1',
+        ]);
         // Product::create($request->all());
         $producto = new Product([
             'nombre' => $request->nombre,
@@ -78,6 +87,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $products = Product::findOrFail($id);
+        $categorias = Categoria::pluck('nombre', 'id');
         return view('productos.create', compact('products','categorias'));
     }
 
@@ -95,8 +105,8 @@ class ProductController extends Controller
         $products->estilo = $request->input('estilo');
         $products->tipo_area = $request->input('tipo_area');
         $products->precio = $request->input('precio');
-        $products->categoria = $request->input('categoria');
-        $products->descripcion = $request->input('descripcion');
+        $products->cantidad = $request->input('cantidad');
+        $products->categoria_id = $request->input('categoria_id');
         $products->update();
   
         return redirect()->route('productos.index')

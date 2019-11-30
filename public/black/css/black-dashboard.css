@@ -4553,6 +4553,7 @@ input[type="button"].btn-block {
   }
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     position: absolute;
+    left: -.5rem;
   }
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1rem;
@@ -13390,8 +13391,8 @@ img {
 .navbar .photo {
   display: inline-block;
   height: 30px;
-  width: 30px;
-  border-radius: 50%;
+  width: 7.5rem;
+  border-radius: 0;
   vertical-align: middle;
   overflow: hidden;
 }
